@@ -4,7 +4,7 @@ import {getEmail, setEmail, unauthorized} from "../utility/utility.js";
 import Cookies from "js-cookie";
 
 
-const API_BASE_URL = import.meta.env.BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 console.log(API_BASE_URL)
 
 const DashboardStore=create((set)=>({
