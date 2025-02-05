@@ -22,7 +22,7 @@ const app=express();
 
 
 app.use(cookieParser());
-app.use(cors({ origin: "http://localhost:5173",}));
+app.use(cors({ origin: "https://portfolio-assignment-client.vercel.app",}));
 app.use(helmet());
 app.use(hpp());
 
