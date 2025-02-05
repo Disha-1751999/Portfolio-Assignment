@@ -14,7 +14,7 @@ const DashboardStore=create((set)=>({
     },
 
     UserLoginRequest:async(reqBody)=>{
-        let res=await axios.post(`${API_BASE_URL}/api/login`,reqBody);
+        let res=await axios.post(`${API_BASE_URL}/api/login`,reqBody,{ withCredentials: true });
         return res.data['status'] === "success";
     },
 

@@ -3,7 +3,9 @@ import { LoginServices,SendMail } from "../services/AdminServices.js";
 export const Login=async(req,res)=>{
     let result= await LoginServices(req);
     if(result.status=='success'){
-        let cookieOption={expires:new Date(Date.now()+24*6060*1000), httpOnly:false}
+        let cookieOption={expires:new Date(Date.now()+24*6060*1000), httpOnly: true, // Prevents client-side access (for security)
+            secure: true, // Ensures cookies are only set over HTTPS
+            sameSite: "None"}
         res.cookie('token',result['token'],cookieOption);
         res.status(200).json(result);  
     }else{ 
