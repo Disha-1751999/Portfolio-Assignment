@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 
 
 const API_BASE_URL = import.meta.env.BASE_URL;
-
+console.log(API_BASE_URL)
 
 const DashboardStore=create((set)=>({
 
