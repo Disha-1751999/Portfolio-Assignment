@@ -2,6 +2,11 @@ import {create} from 'zustand';
 import axios  from "axios";
 import {getEmail, setEmail, unauthorized} from "../utility/utility.js";
 import Cookies from "js-cookie";
+import axios from "axios";
+
+axios.defaults.baseURL = "https://portfolio-assignment-server.vercel.app";
+axios.defaults.withCredentials = true;
+
 
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;

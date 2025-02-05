@@ -26,6 +26,8 @@ app.use(cors({ origin: "https://portfolio-assignment-client.vercel.app",credenti
 app.use(helmet());
 app.use(hpp());
 
+
+
 app.use(express.json({limit: MAX_JSON_SIZE}));
 app.use(express.urlencoded({ extended:  URL_ENCODE }));
 
