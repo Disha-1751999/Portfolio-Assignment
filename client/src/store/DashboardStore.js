@@ -4,6 +4,9 @@ import {getEmail, setEmail, unauthorized} from "../utility/utility.js";
 import Cookies from "js-cookie";
 
 
+const API_BASE_URL = import.meta.env.BASE_URL;
+
+
 const DashboardStore=create((set)=>({
 
     isLogin:()=>{
@@ -11,22 +14,22 @@ const DashboardStore=create((set)=>({
     },
 
     UserLoginRequest:async(reqBody)=>{
-        let res=await axios.post(`/api/login`,reqBody);
+        let res=await axios.post(`${API_BASE_URL}/api/login`,reqBody);
         return res.data['status'] === "success";
     },
 
     UserLogoutRequest:async()=>{
-        let res=await axios.post(`/api/logout`);
+        let res=await axios.post(`${API_BASE_URL}/api/logout`);
         return res.data['status'] === "success";
     },
 
     SaveServiceRequest:async(reqBody)=>{
-        let res=await axios.post(`/api/saveService`,reqBody);
+        let res=await axios.post(`${API_BASE_URL}/api/saveService`,reqBody);
         return res.data['status'] === "success";
     },
 
     RemoveServiceRequest:async(id)=>{
-        let res=await axios.post(`/api/removeService/${id}`);
+        let res=await axios.post(`${API_BASE_URL}/api/removeService/${id}`);
         return res.data['status'] === "success";
     },
 
@@ -34,7 +37,7 @@ const DashboardStore=create((set)=>({
 
     ServiceList:null,
     ReadServiceRequest:async(reqBody)=>{
-        let res=await axios.get(`/api/readService`,reqBody);
+        let res=await axios.get(`${API_BASE_URL}/api/readService`,reqBody);
         if(res.data['data']){         
         set({ServiceList:res.data['data']})
         }
@@ -46,13 +49,13 @@ const DashboardStore=create((set)=>({
 
     SaveBlogRequest:async(reqBody)=>{
         console.log(reqBody)
-        let res=await axios.post(`/api/saveBlog`,reqBody);
+        let res=await axios.post(`${API_BASE_URL}/api/saveBlog`,reqBody);
         console.log(res)
         return res.data['status'] === "success";
     },
 
     RemoveBlogRequest:async(id)=>{
-        let res=await axios.post(`/api/removeBlog/${id}`);
+        let res=await axios.post(`${API_BASE_URL}/api/removeBlog/${id}`);
         return res.data['status'] === "success";
     },
 
@@ -60,7 +63,7 @@ const DashboardStore=create((set)=>({
 
     BlogList:null,
     ReadBlogRequest:async(reqBody)=>{
-        let res=await axios.get(`/api/readBlog`,reqBody);
+        let res=await axios.get(`${API_BASE_URL}/api/readBlog`,reqBody);
         if(res.data['data']){         
         set({BlogList:res.data['data']})
         }
@@ -69,12 +72,12 @@ const DashboardStore=create((set)=>({
 
 
     SaveTeamRequest:async(reqBody)=>{
-        let res=await axios.post(`/api/saveTeam`,reqBody);
+        let res=await axios.post(`${API_BASE_URL}/api/saveTeam`,reqBody);
         return res.data['status'] === "success";
     },
 
     RemoveTeamRequest:async(id)=>{
-        let res=await axios.post(`/api/removeTeam/${id}`);
+        let res=await axios.post(`${API_BASE_URL}/api/removeTeam/${id}`);
         return res.data['status'] === "success";
     },
 
@@ -82,7 +85,7 @@ const DashboardStore=create((set)=>({
 
     TeamList:null,
     ReadTeamRequest:async(reqBody)=>{
-        let res=await axios.get(`/api/readTeam`,reqBody);
+        let res=await axios.get(`${API_BASE_URL}/api/readTeam`,reqBody);
         if(res.data['data']){         
         set({TeamList:res.data['data']})
         }

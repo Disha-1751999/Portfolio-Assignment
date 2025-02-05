@@ -7,7 +7,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api/':{
-        target:"https://portfolio-assignment-server.vercel.app/"
+        target:"https://portfolio-assignment-server.vercel.app"
       }
     }
   }
