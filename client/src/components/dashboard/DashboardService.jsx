@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import DashboardStore from "../../store/DashboardStore";
 import { toast } from "react-hot-toast";
+import TableSkeleton from "../../skeleton/TableSkeleton";
 
 function DashboardService() {
   const { SaveServiceRequest, ReadServiceRequest, ServiceList, RemoveServiceRequest } = DashboardStore();
@@ -119,7 +120,7 @@ function DashboardService() {
             </div>
 
             
-            <div className="table-responsive">
+            <div className="table-responsive p-2">
   <table className="table table-hover mb-5 w-100 my-5">
     <thead className="table-dark"> 
       <tr>
@@ -156,11 +157,7 @@ function DashboardService() {
           </tr>
         ))
       ) : (
-        <tr>
-          <td colSpan="3" className="text-center text-muted py-3">
-            No services available
-          </td>
-        </tr>
+        <TableSkeleton/>
       )}
     </tbody>
   </table>
