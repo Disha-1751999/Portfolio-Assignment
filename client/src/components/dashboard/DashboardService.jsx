@@ -119,7 +119,7 @@ function DashboardService() {
             </div>
 
             {/* Services List */}
-            <div className="row  mb-5 d-flex w-100 my-5">
+            {/* <div className="row  mb-5 d-flex w-100 my-5">
               {ServiceList && ServiceList.length > 0 ? (
                 ServiceList.map((item, index) => (
                   <div className="col-md-3" key={index}>
@@ -153,7 +153,77 @@ function DashboardService() {
               ) : (
                 <p>No services available</p>
               )}
-            </div>
+            </div> */}
+
+<table class="table mb-5 d-flex w-100 my-5">
+  <thead>
+    <tr>
+      
+      <th scope="col">Service Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+     
+              {ServiceList && ServiceList.length > 0 ? (
+                ServiceList.map((item, index) => (
+              //     <div className="col-md-3" key={index}>
+              //       <div className="card border-2 themeBorder text-center py-3">
+              //         <div className="card-body d-flex flex-column ">
+              //         <div>
+              //    <i className="bi bi-browser-edge fs-1 themeColor mb-5"></i>
+              //  </div>
+              //           <h5 className="card-title">{item.title}</h5>
+              //           <p className="card-text">{item.description}</p>
+              //           <div className="row">
+              //             <div className="col">
+              //               <button
+              //                 className="btn themeColorBg lightColor px-3 mt-3 me-2 main-btn"
+              //                 type="button"
+              //                 data-bs-toggle="modal"
+              //                 data-bs-target="#serviceModal"
+              //                 onClick={() => setSelectedService(item)} // Set the selected service for editing
+              //               >
+              //                 Edit
+              //               </button>
+              //               <button onClick={()=>{remove(item._id)}} className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn">
+              //                 Remove
+              //               </button>
+              //             </div>
+              //           </div>
+              //         </div>
+              //       </div>
+              //     </div>
+              <tr key={index}>
+              <th scope="row">{item.title}</th>
+              <td>{item.description}</td>
+              <td>  <div className="row">
+                         <div className="col">
+                           <button
+                              className="btn themeColorBg lightColor px-3 mt-3 me-2 main-btn"
+                              type="button"
+                              data-bs-toggle="modal"
+                              data-bs-target="#serviceModal"
+                              onClick={() => setSelectedService(item)} // Set the selected service for editing
+                            >
+                              Edit
+                            </button>
+                            <button onClick={()=>{remove(item._id)}} className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn">
+                               Remove
+                            </button>
+                           </div>
+                        </div></td>
+            </tr>
+                ))
+              ) : (
+                <p>No services available</p>
+              )}
+  
+   
+  </tbody>
+</table>
           </div>
         </div>
       </div>
