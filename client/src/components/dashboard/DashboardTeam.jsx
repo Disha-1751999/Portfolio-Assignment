@@ -124,8 +124,63 @@ function DashboardTeam() {
         </div>
       </div>
 
-      {/* Services List */}
-      <div className="row  mb-5 d-flex w-100 my-5 row row-cols-1 row-cols-md-3  row-cols-lg-4  g-4 mb-5">
+      {TeamList && TeamList.length > 0 ? (
+              <div className="table-responsive p-2">
+                <table className="table table-hover mb-5 w-100 my-5">
+                  <thead className="table-dark">
+                    <tr>
+                      <th scope="col">Photo</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Designation</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {TeamList && TeamList.length > 0 ? (
+                      TeamList.map((item, index) => (
+                        <tr key={index}>
+                          <td><img
+              src={userImg}
+              className="card-img-top roundedImage"
+              alt="..."
+              style={{width: "50px" , height: "50px"}}
+            /></td>
+                          <td>{item.name}</td>
+                          <td> {item.designation}</td>
+                          <td>
+                            <div className="d-flex justify-content-start gap-2 flex-wrap">
+                              <button
+                                className="btn themeColorBg lightColor px-3 mt-3 me-2 main-btn"
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#TeamModal"
+                                onClick={() => setSelectedTeam(item)}
+                              >
+                                Edit
+                              </button>
+                              <button
+                               onClick={()=>{remove(item._id)}} className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn"
+                              >
+                                Remove
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <span></span>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div class="text-center mt-5 me-auto ms-auto ">
+                <div class="spinner-border text-success bg-dark" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            )}
+      {/* <div className="row  mb-5 d-flex w-100 my-5 row row-cols-1 row-cols-md-3  row-cols-lg-4  g-4 mb-5">
         {TeamList && TeamList.length > 0 ? (
 
 
@@ -168,7 +223,7 @@ function DashboardTeam() {
         ) : (
           <p></p>
         )}
-      </div>
+      </div> */}
     </div>
   </div>
 </div>
