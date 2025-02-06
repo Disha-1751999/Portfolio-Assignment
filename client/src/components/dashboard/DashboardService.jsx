@@ -155,7 +155,7 @@ function DashboardService() {
               )}
             </div> */}
 
-<table class="table-light table-hover mb-5  w-100 my-5">
+<table class="table table-hover mb-5  w-100 my-5">
   <thead>
     <tr>
       
@@ -201,7 +201,7 @@ function DashboardService() {
               <td>{item.description}</td>
               <td>  <div className="row">
                            <button
-                              className="col-md-6 btn themeColorBg lightColor px-3 mt-1  main-btn"
+                              className="col-md-5 btn themeColorBg lightColor px-3 mt-1 me-1 main-btn"
                               type="button"
                               data-bs-toggle="modal"
                               data-bs-target="#serviceModal"
