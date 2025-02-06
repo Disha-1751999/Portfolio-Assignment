@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import DashboardStore from "../../store/DashboardStore";
 import { toast } from "react-hot-toast";
-import TableSkeleton from "../../skeleton/TableSkeleton";
 
 function DashboardService() {
   const { SaveServiceRequest, ReadServiceRequest, ServiceList, RemoveServiceRequest } = DashboardStore();
