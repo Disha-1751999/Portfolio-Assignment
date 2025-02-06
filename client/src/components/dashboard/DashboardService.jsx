@@ -117,54 +117,57 @@ function DashboardService() {
                 </div>
               </div>
             </div>
+{ServiceList && ServiceList.length>0?(
 
-            
-            <div className="table-responsive p-2">
-  <table className="table table-hover mb-5 w-100 my-5">
-    <thead className="table-dark"> 
-      <tr>
-        <th scope="col">Service Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      {ServiceList && ServiceList.length > 0 ? (
-        ServiceList.map((item, index) => (
-          <tr key={index}>
-            <td>{item.title}</td>
-            <td>{item.description}</td>
-            <td>
-              <div className="d-flex justify-content-start gap-2 flex-wrap">
-                <button
-                  className="btn btn-sm themeColorBg lightColor px-2 main-btn"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#serviceModal"
-                  onClick={() => setSelectedService(item)}
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => remove(item._id)}
-                  className="btn btn-sm themeBorder themeColor px-2 secondary-btn"
-                >
-                  Remove
-                </button>
-              </div>
-            </td>
-          </tr>
-        ))
-      ) : (
-        <div class="text-center mt-5 me-auto ms-auto">
+<div className="table-responsive p-2">
+<table className="table table-hover mb-5 w-100 my-5">
+  <thead className="table-dark"> 
+    <tr>
+      <th scope="col">Service Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {ServiceList && ServiceList.length > 0 ? (
+      ServiceList.map((item, index) => (
+        <tr key={index}>
+          <td>{item.title}</td>
+          <td>{item.description}</td>
+          <td>
+            <div className="d-flex justify-content-start gap-2 flex-wrap">
+              <button
+                className="btn btn-sm themeColorBg lightColor px-2 main-btn"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#serviceModal"
+                onClick={() => setSelectedService(item)}
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => remove(item._id)}
+                className="btn btn-sm themeBorder themeColor px-2 secondary-btn"
+              >
+                Remove
+              </button>
+            </div>
+          </td>
+        </tr>
+      ))
+    ) : (
+   <span></span>
+    )}
+  </tbody>
+</table>
+</div>
+):(   <div class="text-center mt-5 me-auto ms-auto ">
   <div class="spinner-border text-success bg-dark" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
-</div>
-      )}
-    </tbody>
-  </table>
-</div>
+</div>)}
+            
+       
 
 
           </div>
