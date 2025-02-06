@@ -200,9 +200,9 @@ function DashboardService() {
               <td scope="row">{item.title}</td>
               <td>{item.description}</td>
               <td>  <div className="row">
-                         <div className="col">
+                         <div className="">
                            <button
-                              className="btn themeColorBg lightColor px-3 mt-3 me-2 main-btn"
+                              className="col-6 btn themeColorBg lightColor px-3 mt-1  main-btn"
                               type="button"
                               data-bs-toggle="modal"
                               data-bs-target="#serviceModal"
@@ -210,7 +210,7 @@ function DashboardService() {
                             >
                               Edit
                             </button>
-                            <button onClick={()=>{remove(item._id)}} className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn">
+                            <button onClick={()=>{remove(item._id)}} className=" col-6 btn themeBorder themeColor px-3 mt-1 smaller-font secondary-btn">
                                Remove
                             </button>
                            </div>
