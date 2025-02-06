@@ -25,6 +25,7 @@ const DashboardStore=create((set)=>({
 
     UserLogoutRequest:async()=>{
         let res=await axios.post(`${API_BASE_URL}/api/logout`);
+        Cookies.remove('token')
         return res.data['status'] === "success";
     },
 
