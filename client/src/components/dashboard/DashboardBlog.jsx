@@ -64,75 +64,11 @@ function DashboardBlog() {
 
 
   return (
-    // <div className="container">
-    //     <div className="row mt-3">
-    //         <div className="col-12">
-    //         <button className='btn themeColorBg lightColor px-3 mt-3 main-btn'>Add New Blog</button>
-    //         </div>
-    //     </div>
-    //     <div className="row my-3 row-cols-1 row-cols-md-3  row-cols-lg-4  g-4 mb-5">
-    //     <div className="col">
-    //       <div className="card border-2 themeBorder">
-    //         <img
-    //           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-VIYNkS-Hsk6R7hChTDyUq3Q_D2-IsR-JvQ&s"
-    //           className="card-img-top"
-    //           alt="..."
-    //         />
-    //         <div className="card-body">
-    //           <h5 className="card-title">Card title</h5>
-    //           <p className="card-text">
-    //             This is a longer card with supporting text below as a natural
-    //             lead-in to additional content. This content is a little bit
-    //             longer.
-    //           </p>
-    //           <button className='btn themeColorBg lightColor px-3 mt-3 me-2 main-btn'>Edit</button>
-    //            <button className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn">Remove</button>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <div className="col">
-    //       <div className="card">
-    //         <img src="..." className="card-img-top" alt="..." />
-    //         <div className="card-body">
-    //           <h5 className="card-title">Card title</h5>
-    //           <p className="card-text">
-    //             This is a longer card with supporting text below as a natural
-    //             lead-in to additional content. This content is a little bit
-    //             longer.
-    //           </p>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <div className="col">
-    //       <div className="card">
-    //         <img src="..." className="card-img-top" alt="..." />
-    //         <div className="card-body">
-    //           <h5 className="card-title">Card title</h5>
-    //           <p className="card-text">
-    //             This is a longer card with supporting text below as a natural
-    //             lead-in to additional content.
-    //           </p>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <div className="col">
-    //       <div className="card">
-    //         <img src="..." className="card-img-top" alt="..." />
-    //         <div className="card-body">
-    //           <h5 className="card-title">Card title</h5>
-    //           <p className="card-text">
-    //             This is a longer card with supporting text below as a natural
-    //             lead-in to additional content. This content is a little bit
-    //             longer.
-    //           </p>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-      
-    // </div>
 
 <>
+
+
+
 <div className="container">
   <div className="row mt-3">
     <div className="col-12">
@@ -201,50 +137,71 @@ function DashboardBlog() {
         </div>
       </div>
 
-      {/* Services List */}
-      <div className="row  mb-5 d-flex w-100 my-5 row row-cols-1 row-cols-md-3  row-cols-lg-4  g-4 mb-5">
+
+
         {BlogList && BlogList.length > 0 ? (
-
-
-        BlogList.map((item,index)=>{
-          return(
-            <div className="col">
-            <div className="card border-2 themeBorder">
-              <img
-                src={item.img}
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">{item.title}</h5>
-                <p className="card-text">
-                  {item.description}
-                </p>
-                <div className="row">
-                      <div className="col">
-                        <button
-                          className="btn themeColorBg lightColor px-3 mt-3 me-2 main-btn"
-                          type="button"
-                          data-bs-toggle="modal"
-                          data-bs-target="#BlogModal"
-                          onClick={() => setSelectedBlog(item)} // Set the selected service for editing
-                        >
-                          Edit
-                        </button>
-                        <button onClick={()=>{remove(item._id)}} className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn">
-                          Remove
-                        </button>
+                    <div className="table-responsive p-2">
+                    <table className="table table-hover mb-5 w-100 my-5">
+                      <thead className="table-dark">
+                        <tr>
+                          <th scope="col">Photo</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {BlogList && BlogList.length > 0 ? (
+                          BlogList.map((item, index) => (
+                            <tr key={index} className="align-middle"> {/* Ensures vertical alignment */}
+                              <td className="text-center">
+                                <img
+                                  src={item.img}
+                                  className="rounded-circle"
+                                  alt="User"
+                                  style={{ width: "50px", height: "50px" }}
+                                />
+                              </td>
+                              <td className="text-nowrap">{item.title}</td>
+                              <td className="text-nowrap">{item.description}</td>
+                              <td>
+                                <div className="d-flex align-items-center gap-2">
+                                  <button
+                                    className="btn themeColorBg lightColor px-3 mt-3 me-2 main-btn"
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#BlogModal"
+                                    onClick={() => setSelectedBlog(item)} 
+                                  >
+                                    Edit
+                                  </button>
+                                  <button
+                                    onClick={()=>{remove(item._id)}} className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn"
+                                  >
+                                    Remove
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          ))
+                        ) : (
+                          <tr>
+                            <td colSpan="4" className="text-center text-muted py-3">
+                              No team members available
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                  ) : (
+                    <div class="text-center mt-5 me-auto ms-auto ">
+                      <div class="spinner-border text-success bg-dark" role="status">
+                        <span class="visually-hidden">Loading...</span>
                       </div>
                     </div>
-              </div>
-            </div>
-          </div>
-          )
-        })     
-        ) : (
-          <p></p>
-        )}
-      </div>
+                  )}
     </div>
   </div>
 </div>

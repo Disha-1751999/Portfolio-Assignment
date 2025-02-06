@@ -153,7 +153,7 @@ function DashboardService() {
                   <tbody>
                     {ServiceList && ServiceList.length > 0 ? (
                       ServiceList.map((item, index) => (
-                        <tr key={index}>
+                        <tr key={index} className="align-middle">
                           <td>{item.title}</td>
                           <td>{item.description}</td>
                           <td>
