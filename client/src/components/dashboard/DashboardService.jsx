@@ -118,112 +118,54 @@ function DashboardService() {
               </div>
             </div>
 
-            {/* Services List */}
-            {/* <div className="row  mb-5 d-flex w-100 my-5">
-              {ServiceList && ServiceList.length > 0 ? (
-                ServiceList.map((item, index) => (
-                  <div className="col-md-3" key={index}>
-                    <div className="card border-2 themeBorder text-center py-3">
-                      <div className="card-body d-flex flex-column ">
-                      <div>
-                 <i className="bi bi-browser-edge fs-1 themeColor mb-5"></i>
-               </div>
-                        <h5 className="card-title">{item.title}</h5>
-                        <p className="card-text">{item.description}</p>
-                        <div className="row">
-                          <div className="col">
-                            <button
-                              className="btn themeColorBg lightColor px-3 mt-3 me-2 main-btn"
-                              type="button"
-                              data-bs-toggle="modal"
-                              data-bs-target="#serviceModal"
-                              onClick={() => setSelectedService(item)} // Set the selected service for editing
-                            >
-                              Edit
-                            </button>
-                            <button onClick={()=>{remove(item._id)}} className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn">
-                              Remove
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p>No services available</p>
-              )}
-            </div> */}
-<div class="table-responsive">
-<table class="table table-hover mb-5  w-100 my-5">
-  <thead>
-    <tr>
-      
-      <th scope="col-3">Service Name</th>
-      <th scope="col-4">Description</th>
-      <th scope="col-4">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-
-     
-              {ServiceList && ServiceList.length > 0 ? (
-                ServiceList.map((item, index) => (
-              //     <div className="col-md-3" key={index}>
-              //       <div className="card border-2 themeBorder text-center py-3">
-              //         <div className="card-body d-flex flex-column ">
-              //         <div>
-              //    <i className="bi bi-browser-edge fs-1 themeColor mb-5"></i>
-              //  </div>
-              //           <h5 className="card-title">{item.title}</h5>
-              //           <p className="card-text">{item.description}</p>
-              //           <div className="row">
-              //             <div className="col">
-              //               <button
-              //                 className="btn themeColorBg lightColor px-3 mt-3 me-2 main-btn"
-              //                 type="button"
-              //                 data-bs-toggle="modal"
-              //                 data-bs-target="#serviceModal"
-              //                 onClick={() => setSelectedService(item)} // Set the selected service for editing
-              //               >
-              //                 Edit
-              //               </button>
-              //               <button onClick={()=>{remove(item._id)}} className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn">
-              //                 Remove
-              //               </button>
-              //             </div>
-              //           </div>
-              //         </div>
-              //       </div>
-              //     </div>
-              <tr key={index}>
-              <td scope="row">{item.title}</td>
-              <td>{item.description}</td>
-              <td>  <div className="row">
-                           <button
-                              className="col-md-5 btn themeColorBg lightColor px-3 mt-1 me-1 main-btn"
-                              type="button"
-                              data-bs-toggle="modal"
-                              data-bs-target="#serviceModal"
-                              onClick={() => setSelectedService(item)} // Set the selected service for editing
-                            >
-                              Edit
-                            </button>
-                            <button onClick={()=>{remove(item._id)}} className=" col-md-6 btn themeBorder themeColor px-3 mt-1 smaller-font secondary-btn">
-                               Remove
-                            </button>
-                           
-                        </div></td>
-            </tr>
-                ))
-              ) : (
-                <p>No services available</p>
-              )}
-  
-   
-  </tbody>
-</table>
+            
+            <div className="table-responsive">
+  <table className="table table-hover mb-5 w-100 my-5">
+    <thead className="table-dark"> {/* Optional: Dark header */}
+      <tr>
+        <th scope="col">Service Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {ServiceList && ServiceList.length > 0 ? (
+        ServiceList.map((item, index) => (
+          <tr key={index}>
+            <td>{item.title}</td>
+            <td>{item.description}</td>
+            <td>
+              <div className="d-flex flex-wrap">
+                <button
+                  className="btn themeColorBg lightColor px-3 mt-1 me-2 main-btn"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#serviceModal"
+                  onClick={() => setSelectedService(item)} // Set the selected service for editing
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => remove(item._id)}
+                  className="btn themeBorder themeColor px-3 mt-1 secondary-btn"
+                >
+                  Remove
+                </button>
+              </div>
+            </td>
+          </tr>
+        ))
+      ) : (
+        <tr>
+          <td colSpan="3" className="text-center text-muted py-3">
+            No services available
+          </td>
+        </tr>
+      )}
+    </tbody>
+  </table>
 </div>
+
           </div>
         </div>
       </div>
