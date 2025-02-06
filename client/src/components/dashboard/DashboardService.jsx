@@ -154,14 +154,14 @@ function DashboardService() {
                 <p>No services available</p>
               )}
             </div> */}
-
+<div class="table-responsive">
 <table class="table table-hover mb-5  w-100 my-5">
   <thead>
     <tr>
       
-      <th scope="col">Service Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Action</th>
+      <th scope="col-3">Service Name</th>
+      <th scope="col-4">Description</th>
+      <th scope="col-4">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -223,6 +223,7 @@ function DashboardService() {
    
   </tbody>
 </table>
+</div>
           </div>
         </div>
       </div>
