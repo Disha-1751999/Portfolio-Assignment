@@ -140,60 +140,63 @@ function DashboardBlog() {
 
 
         {BlogList && BlogList.length > 0 ? (
-                    <div className="table-responsive p-2">
-                    <table className="table table-hover mb-5 w-100 my-5">
-                      <thead className="table-dark">
-                        <tr>
-                          <th scope="col">Photo</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Description</th>
-                          <th scope="col">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {BlogList && BlogList.length > 0 ? (
-                          BlogList.map((item, index) => (
-                            <tr key={index} className="align-middle"> {/* Ensures vertical alignment */}
-                              <td className="text-center">
-                                <img
-                                  src={item.img}
-                                  className="rounded-circle"
-                                  alt="User"
-                                  style={{ width: "50px", height: "50px" }}
-                                />
-                              </td>
-                              <td className="text-nowrap">{item.title}</td>
-                              <td className="text-nowrap">{item.description}</td>
-                              <td>
-                                <div className="d-flex align-items-center gap-2">
-                                  <button
-                                    className="btn themeColorBg lightColor px-3 mt-3 me-2 main-btn"
-                                    type="button"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#BlogModal"
-                                    onClick={() => setSelectedBlog(item)} 
-                                  >
-                                    Edit
-                                  </button>
-                                  <button
-                                    onClick={()=>{remove(item._id)}} className="btn themeBorder themeColor px-3 mt-3 smaller-font secondary-btn"
-                                  >
-                                    Remove
-                                  </button>
-                                </div>
-                              </td>
-                            </tr>
-                          ))
-                        ) : (
-                          <tr>
-                            <td colSpan="4" className="text-center text-muted py-3">
-                              No team members available
-                            </td>
-                          </tr>
-                        )}
-                      </tbody>
-                    </table>
-                  </div>
+                   <div className="table-responsive p-2">
+                   <table className="table table-hover mb-5 w-100 my-5" style={{ tableLayout: "fixed" }}>
+                     <thead className="table-dark">
+                       <tr>
+                         <th scope="col" style={{ width: "10%" }}>Photo</th>
+                         <th scope="col" style={{ width: "20%" }}>Name</th>
+                         <th scope="col" style={{ width: "40%" }}>Description</th>
+                         <th scope="col" style={{ width: "30%" }}>Action</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       {BlogList && BlogList.length > 0 ? (
+                         BlogList.map((item, index) => (
+                           <tr key={index} className="align-middle">
+                             <td className="text-center">
+                               <img
+                                 src={item.img}
+                                 alt="User"
+                                 style={{ width: "50px", height: "50px" }}
+                               />
+                             </td>
+                             <td className="text-wrap">{item.title}</td>
+                             <td className="text-wrap" style={{ wordBreak: "break-word" }}>
+                               {item.description}
+                             </td>
+                             <td>
+                               <div className="d-flex align-items-center gap-2 flex-wrap">
+                                 <button
+                                   className="btn themeColorBg lightColor px-3 main-btn"
+                                   type="button"
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#BlogModal"
+                                   onClick={() => setSelectedBlog(item)}
+                                 >
+                                   Edit
+                                 </button>
+                                 <button
+                                   onClick={() => remove(item._id)}
+                                   className="btn themeBorder themeColor px-3 smaller-font secondary-btn"
+                                 >
+                                   Remove
+                                 </button>
+                               </div>
+                             </td>
+                           </tr>
+                         ))
+                       ) : (
+                         <tr>
+                           <td colSpan="4" className="text-center text-muted py-3">
+                             No blogs available
+                           </td>
+                         </tr>
+                       )}
+                     </tbody>
+                   </table>
+                 </div>
+                 
                   
                   ) : (
                     <div class="text-center mt-5 me-auto ms-auto ">
