@@ -197,7 +197,7 @@ function DashboardService() {
               //       </div>
               //     </div>
               <tr key={index}>
-              <th scope="row">{item.title}</th>
+              <td scope="row">{item.title}</td>
               <td>{item.description}</td>
               <td>  <div className="row">
                          <div className="col">
