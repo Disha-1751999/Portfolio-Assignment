@@ -121,7 +121,7 @@ function DashboardService() {
             
             <div className="table-responsive">
   <table className="table table-hover mb-5 w-100 my-5">
-    <thead className="table-dark"> {/* Optional: Dark header */}
+    <thead className="table-dark"> 
       <tr>
         <th scope="col">Service Name</th>
         <th scope="col">Description</th>
@@ -135,19 +135,19 @@ function DashboardService() {
             <td>{item.title}</td>
             <td>{item.description}</td>
             <td>
-              <div className="d-flex flex-wrap">
+              <div className="d-flex justify-content-start gap-2 flex-wrap">
                 <button
-                  className="btn themeColorBg lightColor px-3 mt-1 me-2 main-btn"
+                  className="btn btn-sm themeColorBg lightColor px-2 main-btn"
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#serviceModal"
-                  onClick={() => setSelectedService(item)} // Set the selected service for editing
+                  onClick={() => setSelectedService(item)}
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => remove(item._id)}
-                  className="btn themeBorder themeColor px-3 mt-1 secondary-btn"
+                  className="btn btn-sm themeBorder themeColor px-2 secondary-btn"
                 >
                   Remove
                 </button>
@@ -165,6 +165,7 @@ function DashboardService() {
     </tbody>
   </table>
 </div>
+
 
           </div>
         </div>
