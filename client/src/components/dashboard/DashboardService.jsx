@@ -156,8 +156,8 @@ function DashboardService() {
           </tr>
         ))
       ) : (
-        <div class="text-center mt-5">
-  <div class="spinner-border text-success" role="status">
+        <div class="text-center mt-5 me-auto ms-auto">
+  <div class="spinner-border text-success bg-dark" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
 </div>
