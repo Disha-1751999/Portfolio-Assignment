@@ -160,7 +160,16 @@ h1{
   }
 
 
-
+  @media (max-width: 768px) {
+    .table-responsive-blog {
+      overflow-x: auto; /* Enables horizontal scrolling on small devices */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+  
+    .table-blog {
+      min-width: 600px; /* Prevents columns from shrinking too much */
+    }
+  }
 
 
 

@@ -140,8 +140,8 @@ function DashboardBlog() {
 
 
         {BlogList && BlogList.length > 0 ? (
-                   <div className="table-responsive p-2">
-                   <table className="table table-hover mb-5 w-100 my-5" style={{ tableLayout: "fixed" }}>
+                   <div className="table-responsive-blog p-2">
+                   <table className="table table-blog table-hover mb-5 w-100 my-5" style={{ tableLayout: "fixed" }}>
                      <thead className="table-dark">
                        <tr>
                          <th scope="col" style={{ width: "10%" }}>Photo</th>
