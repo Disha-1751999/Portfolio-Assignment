@@ -156,10 +156,10 @@ function DashboardService() {
           </tr>
         ))
       ) : (
-        <div class="text-center">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
+        <div class="text-center mt-5">
+  <div class="spinner-border text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
 </div>
       )}
     </tbody>
