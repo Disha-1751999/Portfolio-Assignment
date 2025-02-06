@@ -155,7 +155,7 @@ function DashboardService() {
               )}
             </div> */}
 
-<table class="table mb-5 d-flex w-100 my-5">
+<table class="table mb-5  w-100 my-5">
   <thead>
     <tr>
       
