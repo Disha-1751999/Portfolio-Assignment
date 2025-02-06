@@ -19,6 +19,7 @@ const DashboardStore=create((set)=>({
 
     UserLoginRequest:async(reqBody)=>{
         let res=await axios.post(`${API_BASE_URL}/api/login`,reqBody,{ withCredentials: true });
+        Cookies.set('token',res.data.token);
         return res.data['status'] === "success";
     },
 
@@ -28,7 +29,7 @@ const DashboardStore=create((set)=>({
     },
 
     SaveServiceRequest:async(reqBody)=>{
-        let res=await axios.post(`${API_BASE_URL}/api/saveService`,reqBody);
+        let res=await axios.post(`${API_BASE_URL}/api/saveService`,reqBody,{ withCredentials: true });
         return res.data['status'] === "success";
     },
 
