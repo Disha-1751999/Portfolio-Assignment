@@ -15,7 +15,7 @@ function TableSkeleton() {
       <tbody>
 
       {
-                                   Array.from({length:16}).map(()=>{
+                                   Array.from({length:16}).map((item,index)=>{
                                        return(
 
                                         <tr key={index}>
